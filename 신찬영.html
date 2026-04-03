@@ -1,0 +1,40 @@
+        <!-- 팀원 카드 시작 -->
+        <div class="card">
+            <!-- 개인별로 배지 추가하기 (absolute 실습) -->
+            <!-- <div class="badge" style="position: absolute; ...">Hot🔥</div> -->
+            <style>
+                .card:hover {
+                    position: relative;
+
+                }
+
+                .secret-memo {
+                    visibility: hidden;
+                }
+                .card:hover .secret-memo  {
+                    visibility: visible;
+                    color: red;
+                }
+
+                .badge {
+                    position: absolute;  
+                    left: 0px;
+                    top: 0px;
+                    background-color:yellow;
+                    background: radial-gradient(#fffb00 30px, rgb(255, 120, 120));
+                    border-radius: 50%;
+                    padding: 10px;
+                }
+            </style>
+
+            <div class="badge">Laughing 🤣</div>
+            <img src="./image/신찬영.jpg" alt="웃는 고양이" width="400">
+            <h2>🙏 신찬영의 꿈 🙏</h2>
+            <p>😏 1. 코딩 고수되서 게임만들기</p>
+            <p>🎉 2. 3d 모델링 고수되서 원하는거 다 만들기</p>
+            
+            <!-- 개인별로 비밀 메모 추가하기 (visibility 실습) -->
+            <!-- <div class="secret-memo" style="visibility: hidden;">🤫 TMI: 수영 못함</div> -->
+             <div class="secret-memo">TMI: 근대 쉽게 게을러 짐 💀💀💀</div>
+        </div>
+        <!-- 팀원 카드 끝 -->
