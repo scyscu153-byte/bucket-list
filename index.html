@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>우리 조 버킷리스트 아트 월</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Gaegu&display=swap" rel="stylesheet">
     <style>
+        /* ================= Reset & Base ================= */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -21,6 +25,13 @@
             padding-bottom: 100px;
         }
 
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /* ================= Header ================= */
         header {
             margin: 60px auto 40px auto;
             background-color: rgba(255, 255, 255, 0.9);
@@ -39,31 +50,33 @@
             margin-bottom: 10px;
         }
 
-        .clearfix::after {
-            content: "";
-            display: block;
-            clear: both;
+        header p {
+            font-size: 1.5rem;
+            color: #555;
         }
 
+        /* ================= Layout ================= */
         .gallery-container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
         }
 
-        /* 공통 카드 스타일 */
+        /* ================= Card Base ================= */
         .card {
-            float: left;
-            width: 31.33%;
-            margin: 1%;
+            width: 300px;
             background: linear-gradient(135deg, #fffcf0 0%, #fff3b0 100%);
             padding: 15px 15px 35px 15px;
             border-radius: 2px 2px 15px 5px;
             box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.15);
             position: relative;
-            /* 자식인 badge의 기준점 */
             transform: rotate(-3deg);
             transition: transform 0.3s ease, z-index 0s;
+            margin-bottom: 20px;
         }
 
         .card:hover {
@@ -92,186 +105,184 @@
             line-height: 1.5;
         }
 
-        .badge1 {
+        /* ================= Individual Card Styles ================= */
+
+        /* Card 3 (유승재) overrides */
+        .card.card-seungjae {
+            background: linear-gradient(135deg, #ecc203 0%, #ff7700bd 100%);
+        }
+        .card.card-seungjae h2 { color: #ffea05; }
+        .card.card-seungjae p { color: #ffffff; }
+
+        /* Card 4 (유초윤) overrides */
+        .card.card-choyun {
+            background: radial-gradient(circle, #ffffde 0%, #fff9db, #f4d291 100%);
+            border-radius: 5px 20px 5px 60px;
+        }
+        .card.card-choyun img { transform: rotate(-1deg); }
+        .card.card-choyun h2, .card.card-choyun p, .card.card-choyun i {
+            color: #651818;
+            font-family: "Gaegu", cursive;
+        }
+
+        /* ================= Badges ================= */
+        .badge {
             position: absolute;
+            z-index: 2;
+        }
+
+        /* Badge 1 (신찬영) */
+        .badge-1 {
             right: 0px;
             top: 0px;
-            background-color: yellow;
             background: radial-gradient(#fffb00 30px, rgb(255, 120, 120));
             border-radius: 50%;
             padding: 10px;
         }
 
-        div.badge2 {
+        /* Badge 2 (최한결) */
+        .badge-2 {
             color: white;
             background-color: red;
-            position: absolute;
             width: 60px;
             border-radius: 15px;
             top: -10px;
             left: -10px;
             transform: rotate(-5deg);
-
-
+            padding: 5px;
             text-align: center;
         }
 
-        /* 2. 비밀 메모 (visibility) 및 hover 효과 관련 CSS를 작성하세요 */
-        .secret-memo1 {
-            visibility: hidden;
-        }
-
-        .card:hover .secret-memo1 {
-            visibility: visible;
-            color: red;
-        }
-
-        .card:hover .secret-memo2 {
-            visibility: visible !important;
-        }
-
-        .secret-memo3 {
-            visibility: hidden;
-        }
-
-        .card:hover .secret-memo3 {
-            visibility: visible;
-        }
-
-        .badge3 {
-            position: absolute;
+        /* Badge 3 (유승재) */
+        .badge-3 {
             left: 0px;
             top: 10px;
             background-color: rgb(238, 255, 5);
             border-radius: 50%;
             padding: 10px;
-
         }
 
-        .badge4 {
-            position: absolute;
+        /* Badge 4 (유초윤) */
+        .badge-4 {
             top: -5px;
             right: -10px;
-
             background-color: rgb(227, 55, 55);
             color: white;
-            padding: 2px 20px;
+            padding: 5px 20px;
             border-radius: 30px;
             text-align: center;
-            box-shadow: 5px 3px 2px #ffa4244f inset,
-                -5px -3px 2px #b929893f inset,
-                2px 2px 2px #64025784;
+            box-shadow: 5px 3px 2px #ffa4244f inset, -5px -3px 2px #b929893f inset, 2px 2px 2px #64025784;
             transform: rotate(10deg);
-            z-index: 2;
+        }
+        .badge-4 h3 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 9pt;
+            color: #ffd1d1;
+            text-shadow: 2px 1.5px 1px #5d8f40dd;
+            margin: 0;
+            line-height: 1.2;
+        }
+        .badge-4 span {
+            color: #ffd1d1;
         }
 
-        .secret4 {
-            padding: 30px 30px;
+        /* ================= Secret Memos ================= */
+        .secret-memo {
             visibility: hidden;
             opacity: 0;
-            transition: 0.3s;
+            transition: opacity 0.3s ease;
+            margin-top: 10px;
+            font-weight: bold;
         }
 
-        .card:hover .secret4 {
+        .card:hover .secret-memo {
             visibility: visible;
             opacity: 1;
         }
 
-        .stikerA {
+        .secret-1 { color: red; }
+        .secret-2 { color: #2c3e50; }
+        .secret-3 { color: #ffffff; }
+        .secret-4 {
+            color: #9363529d;
+            font-style: italic;
+            padding: 10px 0;
+        }
+
+        /* ================= Stickers (유초윤 카드) ================= */
+        .sticker {
             position: absolute;
-            bottom: 0px;
-            right: -25px;
             width: 100px;
             height: 30px;
-
-            background-color: rgba(250, 246, 229, 0.717);
             border-radius: 2px;
             box-shadow: 1px 2px 2px #00000046;
             transform: rotate(-30deg);
             z-index: 1;
         }
-
-        .stikerB {
-            position: absolute;
+        .sticker-a {
+            bottom: 0px;
+            right: -25px;
+            background-color: rgba(250, 246, 229, 0.717);
+        }
+        .sticker-b {
             top: 0px;
             left: -25px;
-            width: 100px;
-            height: 30px;
-
             background-color: rgba(239, 234, 212, 0.717);
-            border-radius: 2px;
-            box-shadow: 1px 2px 2px #00000046;
-            transform: rotate(-30deg);
-            z-index: 1;
         }
     </style>
 </head>
-
 <body>
     <header>
         <h1>🏖️ 2026 버킷리스트 아트 월 🏖️</h1>
-        <p style="font-size: 1.5rem; color: #555;">우리 조의 꿈들을 코르크 보드에 붙였습니다!</p>
+        <p>우리 조의 꿈들을 코르크 보드에 붙였습니다!</p>
     </header>
-    <main class="gallery-container clearfix">
-        <!-- 팀원들의 코드가 들어갈 자리입니다 -->
-        <div class="card">
-            <img src="./image/신찬영.jpg" alt="웃는 고양이" width="400">
 
+    <main class="gallery-container clearfix">
+
+        <!-- 1. 신찬영 -->
+        <div class="card">
+            <div class="badge badge-1">Laughing 🤣</div>
+            <img src="./image/신찬영.jpg" alt="웃는 고양이">
             <h2>🙏 신찬영의 꿈 🙏</h2>
             <p>😏 1. 코딩 고수되서 게임만들기</p>
             <p>🎉 2. 3d 모델링 고수되서 원하는거 다 만들기</p>
-
-            <div class="badge1">Laughing 🤣</div>
-            <div class="secret-memo1">TMI: 근대 쉽게 게을러 짐 💀💀💀</div>
+            <div class="secret-memo secret-1">TMI: 근데 쉽게 게을러 짐 💀💀💀</div>
         </div>
 
+        <!-- 2. 최한결 -->
         <div class="card">
-            <!-- 개인별로 배지 추가하기 (absolute 실습) -->
-            <div class="badge2">Hot🔥</div>
-
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&auto=format&fit=crop&q=60"
-                alt="바다 풍경">
+            <div class="badge badge-2">Hot🔥</div>
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&auto=format&fit=crop&q=60" alt="바다 풍경">
             <h2>✨ 최한결의 꿈</h2>
             <p>🗾 1. 일본여행가기</p>
             <p>💻 2. 앞으로 채워나갈 예정</p>
-
-            <!-- 개인별로 비밀 메모 추가하기 (visibility 실습) -->
-            <div class="secret-memo2" style="visibility: hidden;">🤫 TMI: 돈 없음</div>
+            <div class="secret-memo secret-2">🤫 TMI: 돈 없음</div>
         </div>
 
-        <div class="card">
+        <!-- 3. 유승재 -->
+        <div class="card card-seungjae">
+            <div class="badge badge-3">ball✨</div>
             <img src="./img/se.jpeg" alt="배구">
-
             <h2>✨ 유승재의 꿈</h2>
-            <p>🌊 1. 일본,친구들이랑 계획없이 놀러가기</p>
-            <p>2. 배구 팀 만들기</p>
-            <div class="badge3">ball✨</div>
-            <div class="secret-memo3">배구 못함</div>
-
-
+            <p>🌊 1. 일본, 친구들이랑 계획없이 놀러가기</p>
+            <p>🏐 2. 배구 팀 만들기</p>
+            <div class="secret-memo secret-3">배구 못함</div>
         </div>
 
-        <div class="card">
-            <div class="badge4">
-                <h1><span>🔥중간고사</span><br>D-12</h1>
+        <!-- 4. 유초윤 -->
+        <div class="card card-choyun">
+            <div class="badge badge-4">
+                <h3><span>🔥중간고사</span><br>D-12</h3>
             </div>
-
-            <div class="stikerA"></div>
-            <div class="stikerB"></div>
-
-
-            <img src="https://cdn.kinnso.ai/laravel/posts/20250114-nomad/content/1736906048_digital_nomad.jpg"
-                alt="바다 풍경">
-
+            <div class="sticker sticker-a"></div>
+            <div class="sticker sticker-b"></div>
+            <img src="https://cdn.kinnso.ai/laravel/posts/[DATE-OF-BIRTH]-nomad/content/1736906048_digital_nomad.jpg" alt="바다 풍경">
             <h2>✨ 초윤이의 꿈</h2>
             <p>✈️ 1. 해외 한달살기</p>
             <p>🎮 2. 혼자 게임 만들기</p>
-
-            <i class="secret4">일단 시험부터...^^</i>
-
+            <div class="secret-memo secret-4">일단 시험부터...^^</div>
         </div>
 
     </main>
 </body>
-
 </html>
