@@ -147,6 +147,63 @@
             padding: 10px;
 
         }
+
+        .badge4 {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+
+            background-color: rgb(227, 55, 55);
+            color: white;
+            padding: 2px 20px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 5px 3px 2px #ffa4244f inset,
+                -5px -3px 2px #b929893f inset,
+                2px 2px 2px #64025784;
+            transform: rotate(10deg);
+            z-index: 2;
+        }
+
+        .secret4 {
+            padding: 30px 30px;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .card:hover .secret4 {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .stikerA {
+            position: absolute;
+            bottom: 0px;
+            right: -25px;
+            width: 100px;
+            height: 30px;
+
+            background-color: rgba(250, 246, 229, 0.717);
+            border-radius: 2px;
+            box-shadow: 1px 2px 2px #00000046;
+            transform: rotate(-30deg);
+            z-index: 1;
+        }
+
+        .stikerB {
+            position: absolute;
+            top: 0px;
+            left: -25px;
+            width: 100px;
+            height: 30px;
+
+            background-color: rgba(239, 234, 212, 0.717);
+            border-radius: 2px;
+            box-shadow: 1px 2px 2px #00000046;
+            transform: rotate(-30deg);
+            z-index: 1;
+        }
     </style>
 </head>
 
@@ -191,6 +248,26 @@
             <div class="badge3">ball✨</div>
             <div class="secret-memo3">배구 못함</div>
 
+
+        </div>
+
+        <div class="card">
+            <div class="badge4">
+                <h1><span>🔥중간고사</span><br>D-12</h1>
+            </div>
+
+            <div class="stikerA"></div>
+            <div class="stikerB"></div>
+
+
+            <img src="https://cdn.kinnso.ai/laravel/posts/20250114-nomad/content/1736906048_digital_nomad.jpg"
+                alt="바다 풍경">
+
+            <h2>✨ 초윤이의 꿈</h2>
+            <p>✈️ 1. 해외 한달살기</p>
+            <p>🎮 2. 혼자 게임 만들기</p>
+
+            <i class="secret4">일단 시험부터...^^</i>
 
         </div>
 
